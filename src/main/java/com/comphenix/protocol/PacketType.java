@@ -1088,12 +1088,12 @@ public class PacketType implements Serializable, Cloneable, Comparable<PacketTyp
 		this.version = version;
 		
 		this.classNames = new ArrayList<>();
-		for (int i = 0; i < names.length; i++) {
-			if (isMcpPacketName(names[i])) { // Minecraft MCP packets
-				classNames.add(formatMcpClassName(protocol, sender, names[i]));
+		for (String s : names) {
+			if (isMcpPacketName(s)) { // Minecraft MCP packets
+				classNames.add(formatMcpClassName(protocol, sender, s));
 			} else {
-				classNames.add(formatClassName(protocol, sender, names[i]));
-				classNames.add(formatMojangClassName(protocol, sender, names[i]));
+				classNames.add(formatClassName(protocol, sender, s));
+				classNames.add(formatMojangClassName(protocol, sender, s));
 			}
 		}
 

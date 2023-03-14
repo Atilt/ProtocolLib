@@ -57,8 +57,8 @@ public class PacketLogging implements CommandExecutor, PacketListener {
 
 	private static MethodAccessor HEX_DUMP;
 
-	private List<PacketType> sendingTypes = new ArrayList<>();
-	private List<PacketType> receivingTypes = new ArrayList<>();
+	private final List<PacketType> sendingTypes = new ArrayList<>();
+	private final List<PacketType> receivingTypes = new ArrayList<>();
 
 	private ListeningWhitelist sendingWhitelist;
 	private ListeningWhitelist receivingWhitelist;
@@ -137,16 +137,12 @@ public class PacketLogging implements CommandExecutor, PacketListener {
 				}
 
 				if (pSender == Sender.CLIENT) {
-					if (receivingTypes.contains(type)) {
+					if (!receivingTypes.add(type)) {
 						receivingTypes.remove(type);
-					} else {
-						receivingTypes.add(type);
 					}
 				} else {
-					if (sendingTypes.contains(type)) {
+					if (!sendingTypes.add(type)) {
 						sendingTypes.remove(type);
-					} else {
-						sendingTypes.add(type);
 					}
 				}
 

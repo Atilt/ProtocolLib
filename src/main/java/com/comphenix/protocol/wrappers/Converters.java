@@ -15,12 +15,9 @@
 package com.comphenix.protocol.wrappers;
 
 import java.lang.reflect.Array;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 
 import com.comphenix.protocol.reflect.EquivalentConverter;

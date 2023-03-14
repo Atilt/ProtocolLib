@@ -92,7 +92,6 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.comphenix.protocol.utility.TestUtils.assertItemCollectionsEqual;

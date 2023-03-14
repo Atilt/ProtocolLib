@@ -33,12 +33,9 @@ public class TimedTracker {
 	 * @param type          - the packet type.
 	 */
 	public synchronized void endTracking(long trackingToken, PacketType type) {
-		StatisticsStream stream = this.packets.get(type);
+		//Lazily create a stream
+		StatisticsStream stream = this.packets.computeIfAbsent(type, t -> new StatisticsStream());
 
-		// Lazily create a stream
-		if (stream == null) {
-			this.packets.put(type, stream = new StatisticsStream());
-		}
 		// Store this observation
 		stream.observe(System.nanoTime() - trackingToken);
 		this.observations.incrementAndGet();
@@ -59,7 +56,7 @@ public class TimedTracker {
 	 * @return The map of statistics.
 	 */
 	public synchronized Map<PacketType, StatisticsStream> getStatistics() {
-		final Map<PacketType, StatisticsStream> clone = new HashMap<>();
+		final Map<PacketType, StatisticsStream> clone = new HashMap<>(this.packets.size());
 
 		for (Entry<PacketType, StatisticsStream> entry : this.packets.entrySet()) {
 			clone.put(

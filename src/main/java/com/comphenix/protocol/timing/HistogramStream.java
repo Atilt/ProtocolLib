@@ -7,7 +7,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 
 /**
- * Represents an online algortihm of computing histograms over time.
+ * Represents an online algorithm of computing histograms over time.
  * @author Kristian
  */
 public class HistogramStream extends OnlineComputation {

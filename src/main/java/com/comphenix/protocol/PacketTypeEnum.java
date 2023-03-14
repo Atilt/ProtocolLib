@@ -88,13 +88,7 @@ public class PacketTypeEnum implements Iterable<PacketType> {
 	 */
 	public boolean registerMember(PacketType instance, String name) {
 		instance.setName(name);
-
-		if (!members.contains(instance)) {
-			members.add(instance);
-			return true;
-		}
-
-		return false;
+		return members.add(instance);
 	}
 	
 	/**

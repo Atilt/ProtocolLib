@@ -87,7 +87,7 @@ public class AsyncListenerHandler {
 	private ArrayBlockingQueue<PacketEvent> queuedPackets = new ArrayBlockingQueue<PacketEvent>(DEFAULT_CAPACITY);
 	
 	// List of cancelled tasks
-	private final Set<Integer> stoppedTasks = new HashSet<Integer>();
+	private final Set<Integer> stoppedTasks = new HashSet<>();
 	private final Object stopLock = new Object();
 	
 	// Processing task on the main thread
